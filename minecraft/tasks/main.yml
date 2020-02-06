@@ -1,0 +1,9 @@
+---
+- name: Include task list in play only if the condition is true
+  include: "minecraft-nok8s.yaml"
+  static: no
+  when: mode == "pi"
+- name: Include task list in play only if the condition is true
+  include: "minecraft-k8s.yaml"
+  static: no
+  when: mode == "k8s"
