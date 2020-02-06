@@ -7,7 +7,10 @@ Requirements
 ------------
 Ubuntu for Raspberry Pi 4
 
+Workstation with Ansible 2.9 installed
+
 Workaround for run microk8s properly
+------------
 
 1. Edit /var/snap/microk8s/current/args/containerd file and change --root and --state folders to /mnt/
 
@@ -46,7 +49,6 @@ Host 192.168.1.132
    IdentityFile ~/.ssh/raspi
    user ubuntu
 ```
-Ubuntu Server or Raspbian Wheezy
 
 
 Docker Build
