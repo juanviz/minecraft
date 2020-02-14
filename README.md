@@ -1,15 +1,15 @@
 Role Name
 =========
 
-Install a Minecraft Server in a Raspberry Pi with Ubuntu or as container in microk8s or any Kubernetes compatible cluster
+Install a Minecraft Server in a Raspberry Pi or any server with Ubuntu or as container in microk8s or any Kubernetes compatible cluster.
 
 Requirements
 ------------
-Ubuntu for Raspberry Pi 4
+Ubuntu Server for Raspberry Pi 4 or Ubuntu Server Standard
 
 Workstation with Ansible 2.9 installed
 
-Workaround for run microk8s properly
+Workaround for run microk8s properly in a Raspberry Pi
 ------------
 
 1. Edit /var/snap/microk8s/current/args/containerd file and change --root and --state folders to /mnt/
@@ -77,6 +77,7 @@ Usage
 ----------------
 ```bash
 ansible-playbook  -i inventory.yml -u ubuntu  minecraft.yml  --extra-vars "host=pi mode=pi boot=yes"
+ansible-playbook  -i inventory.yml -u ubuntu  minecraft.yml  --extra-vars "host=ec2 mode=pi boot=yes"
 ansible-playbook  -i inventory.yml -u ubuntu  minecraft.yml  --extra-vars "host=pi mode=k8s"
 ```
 References
@@ -102,4 +103,4 @@ Author Information
 ------------------
 
 @jvicenteherrera
-juanvicenteherrera.eu
+juanvicenteherrera.es
