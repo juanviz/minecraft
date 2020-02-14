@@ -2,9 +2,10 @@
 # tasks file for logcraft-config
 - template: src=minecraft.sh.j2 dest=/etc/init.d/minecraft owner=root group=root mode=0755
   when: host != "pi"
+  become: yes
 - template: src=spigot.sh.j2 dest=/etc/init.d/minecraft owner=root group=root mode=0755
   when: host == "pi" 
-
+  become: yes
 # Run the equivalent of "apt-get update" as a separate step
 - name: Update repos
   apt: 
@@ -32,6 +33,7 @@
   when: host != "pi" 
 - file: path=/opt/minecraft/logs state=directory owner={{minecraft_user}} group=syslog mode=0775 recurse=yes
   when: host != "pi" 
+  become: yes
 - file: path=/opt/minecraft/logs state=directory owner={{minecraft_user}} group=root mode=0775 recurse=yes
   become: yes
   when: host == "pi" 
